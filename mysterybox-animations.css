@@ -1,0 +1,387 @@
+/* ==========================================
+   MYSTERY BOX ANIMATIONS CSS
+   Gaming-themed Dark Mode Styles
+   ========================================== */
+
+/* Box Shake Animation */
+@keyframes box-shake {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px) rotate(-2deg); }
+  20%, 40%, 60%, 80% { transform: translateX(10px) rotate(2deg); }
+}
+
+.box-shake {
+  animation: box-shake 0.5s cubic-bezier(.36,.07,.19,.97) both infinite;
+}
+
+/* Box Opening Animation */
+@keyframes box-open {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.1) rotate(5deg); }
+  50% { transform: scale(0.9) rotate(-5deg); }
+  75% { transform: scale(1.2) rotate(10deg); }
+  100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
+.box-opening {
+  animation: box-open 2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+
+/* Shine/Glow Effect */
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+.shine-effect {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shine 2s infinite;
+}
+
+/* Rarity Glow Animations */
+@keyframes common-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(156, 163, 175, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(156, 163, 175, 0.8); }
+}
+
+@keyframes uncommon-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.8); }
+}
+
+@keyframes rare-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+}
+
+@keyframes epic-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.8); }
+}
+
+@keyframes legendary-glow {
+  0%, 100% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.6); }
+  50% { box-shadow: 0 0 60px rgba(245, 158, 11, 1); }
+}
+
+.rarity-common { animation: common-glow 2s infinite; }
+.rarity-uncommon { animation: uncommon-glow 2s infinite; }
+.rarity-rare { animation: rare-glow 2s infinite; }
+.rarity-epic { animation: epic-glow 2s infinite; }
+.rarity-legendary { animation: legendary-glow 2s infinite; }
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse Animation */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Particle Explosion Effect */
+@keyframes particle-explosion {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: particle-explosion 1s ease-out forwards;
+}
+
+/* Reveal Animation */
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-180deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.reveal-animation {
+  animation: reveal 1s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+
+/* Background Gradient Animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Button Hover Effects */
+.button-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.button-glow:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Loading Spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #10b981;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+/* Confetti Animation */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  animation: confetti-fall 3s linear forwards;
+}
+
+/* Star Twinkle Effect */
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.star-twinkle {
+  animation: twinkle 1.5s ease-in-out infinite;
+}
+
+/* Card Hover Effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Neon Text Effect */
+.neon-text {
+  text-shadow: 
+    0 0 10px rgba(16, 185, 129, 0.5),
+    0 0 20px rgba(16, 185, 129, 0.5),
+    0 0 30px rgba(16, 185, 129, 0.5),
+    0 0 40px rgba(16, 185, 129, 0.5);
+  animation: neon-flicker 2s infinite;
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+  75% { opacity: 0.9; }
+}
+
+/* Slide In Animations */
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-bottom { animation: slide-in-bottom 0.5s ease-out; }
+.slide-in-left { animation: slide-in-left 0.5s ease-out; }
+.slide-in-right { animation: slide-in-right 0.5s ease-out; }
+
+/* Ripple Effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+}
+
+.ripple-effect:active::after {
+  width: 100px;
+  height: 100px;
+  animation: ripple 0.6s ease-out;
+}
+
+/* Utility Classes */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(to right, #10b981, #8b5cf6);
+  padding: 2px;
+  border-radius: 1rem;
+}
+
+.gradient-border > * {
+  background: #1f2937;
+  border-radius: calc(1rem - 2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .box-shake {
+    animation-duration: 0.3s;
+  }
+  
+  .mystery-box-container {
+    padding: 1rem;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-5px) scale(1.01);
+  }
+}
+
+/* Dark Mode Enhancements */
+.dark-theme {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+.dark-card {
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  box-shadow: 
+    20px 20px 60px #0d0d0d,
+    -20px -20px 60px #272727;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
